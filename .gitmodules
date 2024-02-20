@@ -1,3 +1,6 @@
 [submodule "01-intro-react"]
 	path = 01-intro-react
 	url = https://github.com/dzr794/cursoReact-01-intro-react
+[submodule "02-intro-javascript"]
+	path = 02-intro-javascript
+	url = https://github.com/dzr794/cursoReact-02-intro-javascript.git
