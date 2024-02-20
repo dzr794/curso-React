@@ -8,3 +8,8 @@
 npx create-react-app <project-title>
 ```
 
+### con vite
+
+``` cmd
+npm create vite
+```
