@@ -4,3 +4,9 @@
 [submodule "02-intro-javascript"]
 	path = 02-intro-javascript
 	url = https://github.com/dzr794/cursoReact-02-intro-javascript.git
+[submodule "03-counter-app-cra"]
+	path = 03-counter-app-cra
+	url = https://github.com/dzr794/cursoReact-03-counter-app-cra.git
+[submodule "03-counter-app-vite"]
+	path = 03-counter-app-vite
+	url = https://github.com/dzr794/cursoReact-03-counter-app-vite.git
