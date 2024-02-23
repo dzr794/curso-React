@@ -8,10 +8,9 @@
 
 ### con 'create-react-app'
 
-``` cmd
+```cmd
 npx create-react-app <project-title>
 ```
-
 
 ## Notas de React
 
@@ -21,9 +20,9 @@ React no permite mas de un nodo padre en la exportación de sus elementos, por l
 Esto es posible hacerlo de 2 formas:
 
 forma 1: importando el 'Fragment' de React y usando ese modulo como padre.
-con este modulo no habria problema en renderizar 2 o mas elementos padres en un solo modulo ya que <Fragment> no se renderiza.
+con este modulo no habria problema en renderizar 2 o mas elementos padres en un solo modulo ya que `<Fragment>` no se renderiza.
 
-``` React
+```React
 import {Fragment} from 'React'
 
 export const FirstApp = () => {
@@ -39,7 +38,7 @@ export const FirstApp = () => {
 
 o la nueva forma simplificada, la cual no necesita de importaciones y consiste en simplemente usar
 
-``` React
+```React
 export const FirstApp = () => {
   return (
     <>
@@ -62,13 +61,17 @@ Al usar el componente le agregamos la propiedades del mismo modo que se agregan 
 Las PropTypes son un modulo de React el cual sirve como el tipado de Typescript pero en JS, viene instalado por defecto en CRA pero debe de instalarse al usar vite (`yarn add -D prop-types`)
 
 ¿Cómo se usan?
+
 1. Se deben importar al inicio del componente `import PropTypes from 'prop-types'`
 2. Debajo del componente se declaran las propTypes así:
-   ``` jsx
+   ```jsx
    <nombreComponente>.propTypes = {
     <nombrePropiedad>: PropTypes.<tipoPropiedad>,
-  }
    ```
+
+  }
+
+```
 
    por ejemplo:
 
@@ -77,7 +80,7 @@ Las PropTypes son un modulo de React el cual sirve como el tipado de Typescript 
     title: PropTypes.string,
 
   }
-   ```
+```
 
 En caso de que queramos que una propiedad sea requerida solo debemos agregar el `.isRequired` al final, así:
 
@@ -86,7 +89,7 @@ En caso de que queramos que una propiedad sea requerida solo debemos agregar el 
     title: PropTypes.string.isRequired,
 
   }
-   ```
+```
 
 debajo del componente se de
 
@@ -109,7 +112,7 @@ FirstApp.defaultProps = {
 }
 ```
 
-pero tambien se pueden asignar al hacer la segregación delas props del componente
+pero también se pueden asignar al hacer la segregación delas props del componente
 
 ```jsx
 export const FirstApp = ( { title = 'abc', subtitle = 'xyz', name='asd' } ) => {
@@ -117,10 +120,66 @@ export const FirstApp = ( { title = 'abc', subtitle = 'xyz', name='asd' } ) => {
 }
 ```
 
+### useState
+
+el useState hace parte de los Hooks de React, cada hook comienza con la palabra clave ***use*** y se usan de la siguiente manera:
+
+se utiliza como una desestructuracion de un arreglo que retorna la función useState, la cual puede recibir parametros.
+en este caso: `const [ counter, setCounter ] = useState( value );` se recibe el parametro *value* que viene desde los props del componente.
+
+  - la primera parte de la desestructuración es la variable **CONSTANTE** que controlará el hook useState.
+  - la segunda parte de la desedtructuración es una función la cual se usa para cambiar el valor de nuestra variable.
+
+acontinuación un ejemplo de uso de este useState en una app que cuenta números.
+
+en esta hay 3 botones, cada uno con un handler que llama al useState para modificar el valor de **counter**.
+
+Si no se usara el use state, React NO RENDERIZARIA EL NUEVO VALOR de *value*.
+
+```jsx
+import PropTypes from 'prop-types'
+import { useState } from 'react'
+
+export const CounterApp = ( {value} ) => {
+
+  const [ counter, setCounter ] = useState( value );
+
+  const handleSubtract = () => {
+    setCounter( counter - 1 );
+  }
+
+  const handleAdd = () => {
+    setCounter( counter + 1 );
+    // setCounter( (c) => c + 1 );
+  }
+
+  const handleReset = () => {
+    setCounter( value );
+  }
+
+  return (
+    <>
+    <h1>CounterApp</h1>
+    <h2> { counter } </h2>
+    <button onClick={handleSubtract}>-1</button>
+    <button onClick={handleAdd}>+1</button>
+    <button onClick={handleReset}>Reset</button>
+    </>
+  )
+}
+
+CounterApp.propTypes = {
+  value: PropTypes.number.isRequired,
+}
+
+CounterApp.defaultProps = {
+  value: 0,
+}
+``` 
 
 ## RECOMENDACIONES
 
-  1. Se recomienda que las variables o funciones que se usen dentro de un componente de React esten por fuera del componente para evitar que cuando el componente tenga que redibujarse va a volver a especificar en memoria el espacio que ocupa cada una de las funciones y variables creadas dentro del componente.
+1. Se recomienda que las variables o funciones que se usen dentro de un componente de React esten por fuera del componente para evitar que cuando el componente tenga que re dibujarse va a volver a especificar en memoria el espacio que ocupa cada una de las funciones y variables creadas dentro del componente.
 
   Ejemplo con variable:
 
@@ -134,7 +193,6 @@ export const FirstApp = () => {
 }
 ```
 
-  
   Ejemplo con funcion:
 
 ```React
