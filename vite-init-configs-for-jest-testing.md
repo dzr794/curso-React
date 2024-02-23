@@ -57,3 +57,31 @@ describe('Tests of <Component-name />', ()=>{
   })
 })
 ```
+
+## En caso de que hayan errores al hacer pruebas con fetch (hay que hacer la configuración si estamos en una version de node por debajo de 18)
+
+### Instalar la dependencia 'whatwg-fetch'
+
+`yarn add -D whatwg-fetch`
+
+### Crear el archivo 'jest.setup.js' en el root
+
+**Este archivo contiene codigo de javascript el cual se ejecuta justo cuando inician las pruebas.**
+
+Agregar este polyfill (Un polyfill es un fragmento de código, normalmente JavaScript en la Web, que se utiliza para proporcionar funcionalidades modernas en navegadores antiguos que no las soportan de forma nativa.)
+
+``` js
+import 'whatwg-fetch';
+```
+
+### Crear archivo 'jest.config.cjs' en el root
+
+**Este archivo lo busca JEST en el momento en el que lanzamos la test suit**, Para más información ver la documentación: https://jestjs.io/docs/configuration
+
+Agregar esto en el archivo
+
+``` cjs
+module.exports = {
+  setupFiles: ['./jest.setup.js']
+}
+```
