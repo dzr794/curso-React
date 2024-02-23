@@ -88,8 +88,35 @@ En caso de que queramos que una propiedad sea requerida solo debemos agregar el 
   }
    ```
 
-
 debajo del componente se de
+
+### defaultProps
+
+Se pueden declarar de 2 formas, la mas común es ponerla después de los propTypes.
+por ejemplo:
+
+```jsx
+FirstApp.propTypes = {
+  name: PropTypes.string,
+  subtitle: PropTypes.string,
+  title: PropTypes.string.isRequired,
+}
+
+FirstApp.defaultProps = {
+  name: "David",
+  subtitle: "No hay subtitulo",
+  title: "No hay título",
+}
+```
+
+pero tambien se pueden asignar al hacer la segregación delas props del componente
+
+```jsx
+export const FirstApp = ( { title = 'abc', subtitle = 'xyz', name='asd' } ) => {
+  export ...
+}
+```
+
 
 ## RECOMENDACIONES
 
