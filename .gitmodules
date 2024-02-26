@@ -10,3 +10,6 @@
 [submodule "03-counter-app-vite"]
 	path = 03-counter-app-vite
 	url = https://github.com/dzr794/cursoReact-03-counter-app-vite.git
+[submodule "04-gif-expert-app"]
+	path = 04-gif-expert-app
+	url = https://github.com/dzr794/cursoReact-04-gif-expert-app.git
