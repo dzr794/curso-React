@@ -1,9 +1,8 @@
 
+import React from 'react';
 import { TodoItem } from './TodoItem'
 
-export const TodoList = ({todos}) => {
-  console.log("Todo List :)");
-  // console.log(todos);
+export const TodoList = ({ todos = [], onDeleteTodo, onToggleTodo }) => {
   
   return (
     <ul className="list-group">
@@ -11,7 +10,12 @@ export const TodoList = ({todos}) => {
 
         todos.map( todo => (
 
-          <TodoItem key={todo.id} todo={todo}/>
+          <TodoItem 
+            key={ todo.id } 
+            todo={ todo } 
+            onDeleteTodo={ onDeleteTodo }
+            onToggleTodo={ onToggleTodo }
+          />
           
         ))
       }

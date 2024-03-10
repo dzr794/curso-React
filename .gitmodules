@@ -13,3 +13,6 @@
 [submodule "04-gif-expert-app"]
 	path = 04-gif-expert-app
 	url = https://github.com/dzr794/cursoReact-04-gif-expert-app.git
+[submodule "05-hook-app"]
+	path = 05-hook-app
+	url = https://github.com/dzr794/cursoReact-05-hookApp.git

@@ -1,36 +1,41 @@
-import { useRef } from "react";
+
+import { useForm } from "../../hooks/useForm";
 
 
-export const TodoForm = () => {
+export const TodoForm = ({ onNewTodo }) => {
 
-  const inputDescription = useRef()
+  
 
+  const { description, onInputChange, onFormReset,} = useForm({ 
+    description: '' 
+  });
 
-  const onNewTodo = (e) => {
+  const onFormSubmit = (e) => {
     e.preventDefault();
-    const todoDescription = inputDescription.current.value;
-    if (todoDescription.length < 3) {
-      return;
-    }
+    
+    if (description.length < 3) return;
     
     const newTodo = {
-      id: new Date().getTime(),
-      description: todoDescription,
+      description: description,
       done: false,
+      id: new Date().getTime(),
     }
-
-    console.log(newTodo);
+    
+    onNewTodo( newTodo );
+    onFormReset();
     
   }
 
   return (
     
-    <form onSubmit={onNewTodo}>
+    <form onSubmit={ onFormSubmit }>
       <input 
-        ref={inputDescription}
         type="text" 
         placeholder="¿Qué hay que hacer?"
         className="form-control"
+        name="description"
+        value={ description }
+        onChange={ onInputChange }
       />
 
       <button
