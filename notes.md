@@ -12,6 +12,12 @@
 npx create-react-app <project-title>
 ```
 
+## ¿Cómo usar less para los estilos?
+
+simplemente instalalo
+
+`yarn add -D less`
+
 ## Notas de React
 
 ### Fragmento
@@ -127,8 +133,8 @@ el useState hace parte de los Hooks de React, cada hook comienza con la palabra 
 se utiliza como una desestructuracion de un arreglo que retorna la función useState, la cual puede recibir parametros.
 en este caso: `const [ counter, setCounter ] = useState( value );` se recibe el parametro *value* que viene desde los props del componente.
 
-  - la primera parte de la desestructuración es la variable **CONSTANTE** que controlará el hook useState.
-  - la segunda parte de la desedtructuración es una función la cual se usa para cambiar el valor de nuestra variable.
+- la primera parte de la desestructuración es la variable **CONSTANTE** que controlará el hook useState.
+- la segunda parte de la desedtructuración es una función la cual se usa para cambiar el valor de nuestra variable.
 
 acontinuación un ejemplo de uso de este useState en una app que cuenta números.
 
@@ -175,7 +181,7 @@ CounterApp.propTypes = {
 CounterApp.defaultProps = {
   value: 0,
 }
-``` 
+```
 
 ## RECOMENDACIONES
 
