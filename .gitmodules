@@ -16,3 +16,6 @@
 [submodule "05-hook-app"]
 	path = 05-hook-app
 	url = https://github.com/dzr794/cursoReact-05-hookApp.git
+[submodule "_customHooks"]
+	path = _customHooks
+	url = https://github.com/dzr794/cursoReact_customHooks.git
