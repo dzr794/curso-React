@@ -19,3 +19,6 @@
 [submodule "_customHooks"]
 	path = _customHooks
 	url = https://github.com/dzr794/cursoReact_customHooks.git
+[submodule "07-heroes-spa"]
+	path = 07-heroes-spa
+	url = https://github.com/dzr794/cursoReact-07-heroesSpa.git
